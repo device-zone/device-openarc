@@ -159,6 +159,9 @@
                 <source>
                   <location>target/classes/usr/libexec/device/services/mail/smtp/arc/set</location>
                 </source>
+                <source>
+                  <location>target/classes/usr/libexec/device/services/mail/smtp/arc/show-dns</location>
+                </source>
               </sources>
             </mapping>
           </mappings>

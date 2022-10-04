@@ -1,0 +1,23 @@
+#!/bin/sh
+  
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  arc=/etc/device/services/mail/smtp/arc
+  if [ ! -e "${arc}/domain.txt" ]; then
+    exit;
+  fi
+  domain=$(head -n 1 "${arc}/domain.txt")
+  selector=default
+  if [ -s "${arc}/selector.txt" ]; then
+    selector=$(head -n 1 "${arc}/selector.txt")
+  fi
+  if [ -s "${arc}/key.pem" ]; then
+    key=$(openssl rsa -in "${arc}/key.pem" -pubout -outform der 2>/dev/null | openssl base64 -A)
+    echo "${selector}._domainkey.${domain}. 86400 IN TXT \"v=DKIM1; p=${key}\""
+  fi
+
+fi
+
