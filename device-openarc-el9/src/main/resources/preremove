@@ -1,0 +1,7 @@
+if [ $1 = 0 ]; then
+  /usr/bin/systemctl stop openarc-autodiscovery.service
+  /usr/bin/systemctl stop openarc.service
+  /usr/bin/systemctl disable openarc-autodiscovery.service
+  /usr/bin/systemctl disable openarc.service
+fi
+

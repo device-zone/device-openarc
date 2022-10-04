@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  /usr/bin/sudo /usr/bin/systemctl --quiet disable openarc-autodiscovery.service
+  /usr/bin/sudo /usr/bin/systemctl --quiet disable openarc.service
+
+  if test -f "disabled"; then
+    echo "arc is already disabled."
+  elif test -f "enabled"; then
+    mv "enabled" "disabled"
+    /usr/bin/sudo /usr/bin/systemctl stop openarc.service
+    /usr/bin/sudo /usr/bin/systemctl stop openarc-autodiscovery.service
+  fi
+
+  if test -f "disabled"; then
+    /bin/rm -f /etc/device/services/mail/smtp/milters/20-openarc
+  fi
+
+fi
+

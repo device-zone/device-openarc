@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  /usr/bin/sudo /usr/bin/systemctl --quiet enable openarc-autodiscovery.service
+  /usr/bin/sudo /usr/bin/systemctl --quiet enable openarc.service
+
+  if test -f "enabled"; then
+    echo "arc is already enabled."
+  elif test -f "disabled"; then
+    mv "disabled" "enabled"
+    /usr/bin/sudo /usr/bin/systemctl restart openarc-autodiscovery.service
+    /usr/bin/sudo /usr/bin/systemctl restart openarc.service
+  else
+    touch "enabled"
+    echo "arc will be enabled on next reboot."
+  fi
+
+  if test -f "enabled"; then
+    mkdir -p /etc/device/services/mail/smtp/milters
+    ln -s /run/openarc/openarc.sock /etc/device/services/mail/smtp/milters/20-openarc
+  fi
+
+fi
+

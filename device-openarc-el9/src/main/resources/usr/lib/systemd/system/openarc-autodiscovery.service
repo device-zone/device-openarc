@@ -1,0 +1,18 @@
+# systemd service for managing all openarc autoconfiguration.
+
+[Unit]
+Description=OpenARC Configuration Autodiscovery
+#Requires=openarc.service
+#PartOf=openarc.service
+#ReloadPropagatedFrom=openarc.service
+Before=openarc.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-openarc-autodiscovery
+ExecReload=/bin/bash /usr/libexec/device-openarc-autodiscovery
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+
