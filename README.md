@@ -3,6 +3,7 @@ Provides an OpenARC appliance.
 
 This appliance does the following:
 
+- All parameters syntax checked and canonicalised.
 - Automatically configures OpenARC's configuration files before startup.
 - Binds securely to the unix domain socket /run/openarc/openarc.sock.
 - Enables verification of email.
