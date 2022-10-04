@@ -8,6 +8,7 @@ This appliance does the following:
 - Enables verification of email.
 - Optionally adds a domain, selector and key to the configuration, to enable signing.
 - Autostarts on server restart.
+- Zero Trust configuration.
 
 ## before
 
