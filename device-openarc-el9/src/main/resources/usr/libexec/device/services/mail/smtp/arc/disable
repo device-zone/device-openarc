@@ -16,7 +16,6 @@ if [ "$1" == "--" ]; then
     else
       echo "arc will be disabled on next reboot."
     fi
-    /bin/rm -f /etc/device/services/mail/smtp/milters/20-openarc
   fi
 
 fi

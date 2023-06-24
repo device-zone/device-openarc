@@ -15,8 +15,6 @@ if [ "$1" == "--" ]; then
     echo "key is required to enable arc"
   else
     rm "disabled.bin"
-    mkdir -p /etc/device/services/mail/smtp/milters
-    ln -s -f /run/openarc/openarc.sock /etc/device/services/mail/smtp/milters/20-openarc
     if systemctl is-active --quiet openarc-autodiscovery.service; then
       /usr/bin/sudo /usr/bin/systemctl restart openarc-autodiscovery.service
       /usr/bin/sudo /usr/bin/systemctl restart openarc.service

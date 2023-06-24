@@ -2,9 +2,7 @@
 
 [Unit]
 Description=OpenARC Configuration Autodiscovery
-#Requires=openarc.service
-#PartOf=openarc.service
-#ReloadPropagatedFrom=openarc.service
+PartOf=openarc.service
 Before=openarc.service
 Before=postfix-autodiscovery.service
 

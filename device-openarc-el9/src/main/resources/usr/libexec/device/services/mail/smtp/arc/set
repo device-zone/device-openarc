@@ -11,7 +11,6 @@ if [ "$1" == "--" ]; then
 
   if test -f "disabled.bin"; then
     /usr/bin/sudo /usr/bin/systemctl --quiet disable openarc.service
-    /bin/rm -f /etc/device/services/mail/smtp/milters/20-openarc
     if systemctl is-active --quiet openarc-autodiscovery.service; then
       /usr/bin/sudo /usr/bin/systemctl stop openarc.service
     else
@@ -19,8 +18,6 @@ if [ "$1" == "--" ]; then
     fi
   else
     /usr/bin/sudo /usr/bin/systemctl --quiet enable openarc.service
-    mkdir -p /etc/device/services/mail/smtp/milters
-    ln -s -f /run/openarc/openarc.sock /etc/device/services/mail/smtp/milters/20-openarc
     if systemctl is-active --quiet openarc-autodiscovery.service; then
       /usr/bin/sudo /usr/bin/systemctl restart openarc-autodiscovery.service
       /usr/bin/sudo /usr/bin/systemctl restart openarc.service
