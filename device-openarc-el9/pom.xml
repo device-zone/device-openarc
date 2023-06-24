@@ -104,7 +104,7 @@
               </sources>
             </mapping>
             <mapping>
-              <directory>/usr/libexec</directory>
+              <directory>/usr/libexec/device-autodiscovery</directory>
               <directoryIncluded>false</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>
@@ -112,7 +112,7 @@
               <sources>
                 <source>
                   <location>target/classes/usr/libexec/device-openarc-autodiscovery</location>
-                  <destination>device-openarc-autodiscovery</destination>
+                  <destination>openarc</destination>
                 </source>
               </sources>
             </mapping>

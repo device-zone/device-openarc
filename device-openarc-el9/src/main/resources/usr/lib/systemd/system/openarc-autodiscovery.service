@@ -6,11 +6,12 @@ Description=OpenARC Configuration Autodiscovery
 #PartOf=openarc.service
 #ReloadPropagatedFrom=openarc.service
 Before=openarc.service
+Before=postfix-autodiscovery.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash /usr/libexec/device-openarc-autodiscovery
-ExecReload=/bin/bash /usr/libexec/device-openarc-autodiscovery
+ExecStart=/bin/bash /usr/libexec/device-autodiscovery/openarc
+ExecReload=/bin/bash /usr/libexec/device-autodiscovery/openarc
 RemainAfterExit=on
 
 [Install]
