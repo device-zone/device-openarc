@@ -10,7 +10,11 @@ set -e
 umask 0022
 
 
+#
+# selinux workaround
+# ------------------
 
+semanage fcontext -a -t dkim_milter_data_t '/var/run/openarc(/.*)?' 2>/dev/null || true
 
 #
 # openarc.conf
