@@ -1,7 +1,9 @@
 if [ $1 = 1 ]; then
 
+  # Default is disabled
+  install -m 660 -g device /dev/null /etc/device/services/mail/smtp/arc/disabled.bin
+
   # Register the service
-  /usr/bin/systemctl enable openarc.service
   /usr/bin/systemctl enable openarc-autodiscovery.service
 fi
 
