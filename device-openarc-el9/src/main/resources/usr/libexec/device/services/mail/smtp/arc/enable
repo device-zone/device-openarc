@@ -9,6 +9,10 @@ if [ "$1" == "--" ]; then
 
   if test ! -f "disabled.bin"; then
     echo "arc is already enabled."
+  elif test ! -f "/etc/device/services/mail/smtp/arc/domain.txt"; then
+    echo "domain is required to enable arc"
+  elif test ! -L "/etc/device/services/mail/smtp/arc/key.pem"; then
+    echo "key is required to enable arc"
   else
     rm "disabled.bin"
     mkdir -p /etc/device/services/mail/smtp/milters

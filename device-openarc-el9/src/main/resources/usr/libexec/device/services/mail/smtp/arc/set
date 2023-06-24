@@ -3,7 +3,7 @@
 set -e
 umask 0002
 
-OPTIONS="--polar disabled --hostname selector --fqdn domain --symlink-base=/etc/pki/tls/private --symlink-suffix=.pem --symlink=key"
+OPTIONS="--polar disabled --hostname selector --required --fqdn domain --symlink-base=/etc/pki/tls/private --symlink-suffix=.pem --symlink=key"
 
 if [ "$1" == "--" ]; then
 
