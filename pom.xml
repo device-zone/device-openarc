@@ -8,7 +8,7 @@
 
   <artifactId>device-openarc</artifactId>
   <groupId>zone.device.platform</groupId>
-  <version>0.9.9</version>
+  <version>0.9.10-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>device openarc package</name>
   <description>Packaging for the openarc appliance</description>
@@ -23,7 +23,7 @@
     <connection>scm:git:https://github.com/device-zone/device-openarc.git</connection>
     <developerConnection>scm:git:https://github.com/device-zone/device-openarc.git</developerConnection>
     <url>https://github.com/device-zone/device-openarc</url>
-    <tag>device-openarc-0.9.9</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
