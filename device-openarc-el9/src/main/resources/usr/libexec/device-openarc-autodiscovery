@@ -34,6 +34,7 @@ cat >> ${openarc_conf} <<- EOF
 PidFile /run/openarc/openarc.pid
 Syslog  yes
 UserID  openarc:openarc
+UMask   007
 Socket  local:/run/openarc/openarc.sock
 SignHeaders to,subject,message-id,date,from,mime-version,dkim-signature
 PeerList /etc/openarc/PeerList
